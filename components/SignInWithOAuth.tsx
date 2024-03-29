@@ -1,7 +1,6 @@
 import { defaultStyles } from '@/constants/Styles'
 import { isClerkAPIResponseError, useOAuth } from '@clerk/clerk-expo'
 import { Ionicons } from '@expo/vector-icons'
-import { useRouter } from 'expo-router'
 import * as WebBrowser from 'expo-web-browser'
 import React, { useCallback } from 'react'
 import { Alert, Text, TouchableOpacity } from 'react-native'
@@ -18,8 +17,6 @@ const SignInWithOAuth = ({ marginTop = 0 }: Props) => {
   // https://docs.expo.dev/guides/authentication/#improving-user-experience
   useWarmUpBrowser()
 
-  const router = useRouter()
-
   const { startOAuthFlow } = useOAuth({ strategy: 'oauth_google' })
 
   const onPress = useCallback(async () => {
@@ -28,8 +25,6 @@ const SignInWithOAuth = ({ marginTop = 0 }: Props) => {
 
       if (createdSessionId) {
         await setActive!({ session: signIn!.createdSessionId })
-
-        router.push('/')
       } else {
         // Use signIn or signUp for next steps such as MFA
       }

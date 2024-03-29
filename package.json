@@ -52,7 +52,9 @@
     "remove": "^0.1.5",
     "victory-native": "^40.1.0",
     "zeego": "^1.10.0",
-    "zustand": "^4.5.2"
+    "zustand": "^4.5.2",
+    "expo-application": "~5.8.3",
+    "expo-crypto": "~12.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

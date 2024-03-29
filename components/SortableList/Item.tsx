@@ -118,6 +118,7 @@ const Item = ({ children, positions, id, onDragEnd, scrollView, scrollY, editing
       translateY.value = withTiming(newPosition.y, animationConfig)
     },
   })
+
   const style = useAnimatedStyle(() => {
     const zIndex = isGestureActive.value ? 100 : 0
     const scale = withSpring(isGestureActive.value ? 1.05 : 1)
@@ -131,6 +132,7 @@ const Item = ({ children, positions, id, onDragEnd, scrollView, scrollY, editing
       transform: [{ translateX: translateX.value }, { translateY: translateY.value }, { scale }],
     }
   })
+
   return (
     <Animated.View style={style}>
       <PanGestureHandler enabled={editing} onGestureEvent={onGestureEvent}>

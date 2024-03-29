@@ -2,7 +2,7 @@ import Colors from '@/constants/Colors'
 import { useAuth, useUser } from '@clerk/clerk-expo'
 import { Ionicons } from '@expo/vector-icons'
 import { BlurView } from 'expo-blur'
-// import { setAppIcon } from 'expo-dynamic-app-icon'
+import { getAppIcon, setAppIcon } from 'expo-dynamic-app-icon'
 import * as ImagePicker from 'expo-image-picker'
 import { useEffect, useState } from 'react'
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
@@ -33,9 +33,9 @@ const Page = () => {
 
   useEffect(() => {
     const loadCurrentIconPref = async () => {
-      // const icon = await getAppIcon()
-      // console.log('🚀 ~ loadCurrentIconPref ~ icon:', icon)
-      // setActiveIcon(icon)
+      const icon = await getAppIcon()
+      console.log('🚀 ~ loadCurrentIconPref ~ icon:', icon)
+      setActiveIcon(icon)
     }
     loadCurrentIconPref()
   }, [])
@@ -71,7 +71,7 @@ const Page = () => {
   }
 
   const onChangeAppIcon = async (icon: string) => {
-    // await setAppIcon(icon.toLowerCase())
+    await setAppIcon(icon.toLowerCase())
     setActiveIcon(icon)
   }
 

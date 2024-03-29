@@ -71,6 +71,12 @@ const InitialLayout = () => {
     } else if (!isSignedIn) {
       router.replace('/')
     }
+
+    // if (isSignedIn) {
+    //   router.replace('/(authenticated)/(tabs)/home')
+    // } else if (!isSignedIn) {
+    //   router.replace('/')
+    // }
   }, [isSignedIn])
 
   if (!loaded || !isLoaded) {

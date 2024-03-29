@@ -3,7 +3,7 @@ import React from 'react'
 import { View } from 'react-native'
 import { MARGIN } from './Config'
 import SortableList from './SortableList'
-import Tile from './Title'
+import Tile from './Tile'
 
 const tiles = [
   {

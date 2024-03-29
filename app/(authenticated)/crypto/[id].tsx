@@ -172,8 +172,8 @@ const Page = () => {
                       tickCount: 5,
                       labelOffset: { x: -2, y: 0 },
                       labelColor: Colors.gray,
-                      formatYLabel: (v) => `${v} €`,
-                      formatXLabel: (ms) => format(new Date(ms), 'MM/yy'),
+                      formatYLabel: (v: any) => `${v} €`,
+                      formatXLabel: (ms: any) => format(new Date(ms), 'MM/yy'),
                     }}
                     data={tickers!}
                     xKey="timestamp"

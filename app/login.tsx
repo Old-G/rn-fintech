@@ -1,6 +1,6 @@
 import Colors from '@/constants/Colors'
 import { defaultStyles } from '@/constants/Styles'
-import { isClerkAPIResponseError, useSignIn } from '@clerk/clerk-expo'
+import { isClerkAPIResponseError, SignedOut, useSignIn } from '@clerk/clerk-expo'
 import { Ionicons } from '@expo/vector-icons'
 import { useRouter } from 'expo-router'
 import { useState } from 'react'
@@ -77,9 +77,10 @@ const Page = () => {
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
-            placeholder="Country code"
+            placeholder="+49"
             placeholderTextColor={Colors.gray}
             value={countryCode}
+            onChangeText={setCountryCode}
           />
           <TextInput
             style={[styles.input, { flex: 1 }]}
@@ -126,7 +127,9 @@ const Page = () => {
           <Text style={[defaultStyles.buttonText, { color: '#000' }]}>Continue with Email </Text>
         </TouchableOpacity>
 
-        <SignInWithOAuth marginTop={20} />
+        <SignedOut>
+          <SignInWithOAuth marginTop={20} />
+        </SignedOut>
 
         <TouchableOpacity
           onPress={() => onSignIn(SignInType.Apple)}
